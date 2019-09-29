@@ -6,7 +6,8 @@ module.exports = function(app) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("login", {
         msg: "Welcome!",
-        examples: dbExamples
+        style: "login.css",
+        users: dbExamples
       });
     });
   });
@@ -16,6 +17,7 @@ module.exports = function(app) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("register", {
         msg: "Welcome!",
+        style: "register.css",
         examples: dbExamples
       });
     });
@@ -25,6 +27,7 @@ module.exports = function(app) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("profile", {
         msg: "Welcome!",
+        style: "profile.css",
         examples: dbExamples
       });
     });

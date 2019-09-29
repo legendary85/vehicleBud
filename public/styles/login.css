@@ -1,0 +1,20 @@
+body {
+  background: #ffcd00;
+  width: 100%;
+  height: 500px;
+}
+
+#submit {
+  background-color: #002d72;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+label {
+  color: #002d72;
+  font-size: 30px;
+}
