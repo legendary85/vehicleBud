@@ -1,44 +1,19 @@
-//Build table for Users
+//Builds table for Companies
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
-    firstName: {
+  var Company = sequelize.define("Company", {
+    companyName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    lastName: {
+    mechanic: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     },
-    userEmail: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
-    },
-    userPassword: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [6, 15]
-    },
-    vehicleType: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
-    },
-    vehicleMake: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
-    },
-    vehicleModel: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [6, 15]
-    },
-    vehicleYear: {
+    service: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
@@ -55,5 +30,5 @@ module.exports = function(sequelize, DataTypes) {
   //   });
   // };
 
-  return User;
+  return Company;
 };

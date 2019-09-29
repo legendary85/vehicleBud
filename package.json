@@ -1,5 +1,5 @@
 {
-  "name": "vehicleBud",
+  "name": "vehiclebud",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -15,7 +15,8 @@
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -26,5 +27,9 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
