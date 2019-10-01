@@ -1,20 +1,20 @@
 var db = require("../models");
-
+// var bcrypt = require("bcrypt");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.User.findAll({}).then(function() {
       res.render("login", {
-        msg: "Welcome!",
-        style: "login.css",
-        users: dbExamples
+        msg: "Account Login",
+        style: "login.css"
+        // users: dbExamples
       });
     });
   });
 
   //Load Register Page
-  app.get("/user/register", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/register", function(req, res) {
+    db.User.findAll({}).then(function(dbExamples) {
       res.render("register", {
         msg: "Welcome!",
         style: "register.css",
@@ -23,12 +23,31 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/user/profile", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  // app.get("/user/register", function(req, res) {
+  //   db.company.findAll({}).then(function(dbExamples) {
+  //     res.render("register", {
+  //       msg: "Welcome!",
+  //       style: "register.css",
+  //       examples: dbExamples
+  //     });
+  //   });
+  // });
+
+  //LOADS DATA PAGE ONCE ACCESSED
+
+  app.get("/profile/:id", function(req, res) {
+    db.User.findAll({
+      where: { id: req.params.id }
+    }).then(function(dbUser) {
+      console.log(dbUser);
       res.render("profile", {
-        msg: "Welcome!",
-        style: "profile.css",
-        examples: dbExamples
+        firstName: dbUser[0].firstName,
+        lastName: dbUser[0].firstName,
+        vehicleType: dbUser[0].vehicleType,
+        vehicleMake: dbUser[0].vehicleMake,
+        vehicleModel: dbUser[0].vehicleModel,
+        vehicleYear: dbUser[0].vehicleYear,
+        style: "profile.css"
       });
     });
   });

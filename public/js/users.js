@@ -1,4 +1,3 @@
-var bcrypt = require("bcrypt");
 // Get references to page elements
 var $userFirstName = $("#firstName");
 var $userLastName = $("#lastName");
@@ -9,7 +8,6 @@ var $userVehicleMake = $("#vehicleMake");
 var $userVehicleModel = $("#vehicleModel");
 var $userVehicleYear = $("#vehicleYear");
 var $submitBtn = $("#submit");
-// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -23,13 +21,13 @@ var API = {
       data: JSON.stringify(newUser)
     });
   },
-  getExamples: function() {
+  getUser: function() {
     return $.ajax({
       url: "api/users",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteUser: function(id) {
     return $.ajax({
       url: "api/users/" + id,
       type: "DELETE"
@@ -38,33 +36,33 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   API.getExamples().then(function(data) {
+//     var $examples = data.map(function(example) {
+//       var $a = $("<a>")
+//         .text(example.text)
+//         .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": example.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $exampleList.empty();
+//     $exampleList.append($examples);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new User
 // Save the new example to the db and refresh the list
@@ -102,18 +100,10 @@ var handleFormSubmit = function(event) {
     refreshUsers();
   });
 
-  // $userFirstName.val("");
-  // $userLastName.val("");
-  // $userEmail.val("");
-  // $userVehicleType.val("");
-  // $userVehicleMake.val("");
-  // $userVehicleModel.val("");
-  // $userVehicleYear.val("");
-  // $userPassword.val("");
-
-  // window.location.replace("/");
+  window.location.replace("/");
 };
 
+//Log in request
 $("#logsubmit").on("click", function(event) {
   alert("Hello!");
   event.preventDefault();
@@ -128,8 +118,9 @@ $("#logsubmit").on("click", function(event) {
     type: "POST",
     data: userLogin
   }).then(function(userdata) {
-    console.log(window.location);
+    // console.log(window.location);
     console.log(userdata);
+
     window.location.replace("/profile/" + userdata.id);
   });
 });
