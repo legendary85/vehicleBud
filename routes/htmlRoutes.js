@@ -23,6 +23,26 @@ module.exports = function(app) {
     });
   });
 
+  //Service Request
+  app.get("/request", function(req, res) {
+    db.User.findAll({}).then(function() {
+      res.render("request", {
+        msg: "Make A Selection",
+        style: "login.css"
+      });
+    });
+  });
+
+  //Blog page
+  app.get("/blog", function(req, res) {
+    db.User.findAll({}).then(function() {
+      res.render("blog", {
+        msg: "Make A Selection",
+        style: "login.css"
+      });
+    });
+  });
+
   // app.get("/user/register", function(req, res) {
   //   db.company.findAll({}).then(function(dbExamples) {
   //     res.render("register", {
@@ -34,7 +54,6 @@ module.exports = function(app) {
   // });
 
   //LOADS DATA PAGE ONCE ACCESSED
-
   app.get("/profile/:id", function(req, res) {
     db.User.findAll({
       where: { id: req.params.id }
@@ -42,7 +61,7 @@ module.exports = function(app) {
       console.log(dbUser);
       res.render("profile", {
         firstName: dbUser[0].firstName,
-        lastName: dbUser[0].firstName,
+        lastName: dbUser[0].lastName,
         vehicleType: dbUser[0].vehicleType,
         vehicleMake: dbUser[0].vehicleMake,
         vehicleModel: dbUser[0].vehicleModel,

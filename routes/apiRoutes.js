@@ -3,11 +3,11 @@ var db = require("../models");
 // var saltRounds = 10;
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+  // app.get("/api/users", function(req, res) {
+  //   db.User.findAll({}).then(function(dbExamples) {
+  //     res.json(dbExamples);
+  //   });
+  // });
 
   //Get rotue for retrieving a single user
   app.get("/api/users/:id", function(req, res) {
@@ -88,7 +88,7 @@ module.exports = function(app) {
   //   });
   // });
 
-  // LOGIN
+  // LOGIN user
   app.post("/api/login", function(req, res) {
     console.log(res.body);
     db.User.findOne({
@@ -101,10 +101,83 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Delete an user by id
+  app.delete("/api/users/:id", function(req, res) {
+    db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  //Update user info
+  app.put("/api/user/:id", function(req, res) {
+    db.User.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbUser) {
+      res.json(daUser);
+    });
+  });
+
+  //REQUEST POSTS
+  // GET route for getting all of the posts
+  app.get("/api/requests/", function(req, res) {
+    db.Request.findAll({}).then(function(dbRequest) {
+      res.json(dbRequest);
+    });
+  });
+  // Get route for returning posts of a specific category
+  app.get("/api/requests/service/:service", function(req, res) {
+    db.Request.findAll({
+      where: {
+        service: req.params.service
+      }
+    }).then(function(dbRequest) {
+      res.json(dbRequest);
+    });
+  });
+
+  // Get route for retrieving a single post
+  app.get("/api/requests/:id", function(req, res) {
+    db.Request.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbRequest) {
+      res.json(dbRequest);
+    });
+  });
+
+  // POST route for saving a new post
+  app.post("/api/request/", function(req, res) {
+    console.log(req.body);
+    db.Request.create({
+      body: req.body.body,
+      service: req.body.service
+    }).then(function(dbRequest) {
+      res.json(dbRequest);
+    });
+  });
+
+  // DELETE route for deleting posts
+  app.delete("/api/requests/:id", function(req, res) {
+    db.Request.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbRequest) {
+      res.json(dbRequest);
+    });
+  });
+
+  // PUT route for updating request
+  app.put("/api/requests", function(req, res) {
+    db.Request.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbRequest) {
+      res.json(dbRequest);
     });
   });
 };
