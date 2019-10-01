@@ -1,3 +1,4 @@
+var bcrypt = require("bcrypt");
 // Get references to page elements
 var $userFirstName = $("#firstName");
 var $userLastName = $("#lastName");
@@ -18,7 +19,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "/api/users",
+      url: "api/users",
       data: JSON.stringify(newUser)
     });
   },
@@ -69,7 +70,7 @@ var refreshExamples = function() {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
+  console.log("anything");
   var newUser = {
     firstName: $userFirstName.val().trim(),
     lastName: $userLastName.val().trim(),
@@ -101,42 +102,63 @@ var handleFormSubmit = function(event) {
     refreshUsers();
   });
 
-  $userFirstName.val("");
-  $userLastName.val("");
-  $userEmail.val("");
-  $userVehicleType.val("");
-  $userVehicleMake.val("");
-  $userVehicleModel.val("");
-  $userVehicleYear.val("");
-  $userPassword.val("");
+  // $userFirstName.val("");
+  // $userLastName.val("");
+  // $userEmail.val("");
+  // $userVehicleType.val("");
+  // $userVehicleMake.val("");
+  // $userVehicleModel.val("");
+  // $userVehicleYear.val("");
+  // $userPassword.val("");
+
+  // window.location.replace("/");
 };
 
-//DYNAMICALLY ADD USER DATA TO PROFILE.HANDLEBARS
-var id = 1;
-$.get("/api/users/" + id, function(data) {
-  console.log(data);
-  var profileSection = $("<div>");
-  profileSection.addClass("well");
-  profileSection.attr("id", "user-well-");
-  $(".name").append(profileSection);
-
-  $("#user-well-").append(
-    "<h2>" + data.firstName + " " + data.lastName + "<h2>"
-  );
-
-  $("#user-well-").append(
-    "<h5>Vehicle Type" + ": " + data.vehicleType + "<h5>"
-  );
-  $("#user-well-").append(
-    "<h5>Vehicle Make" + ": " + data.vehicleMake + "<h5>"
-  );
-  $("#user-well-").append(
-    "<h5>Vehicle Model" + ": " + data.vehicleModel + "<h5>"
-  );
-  $("#user-well-").append(
-    "<h5>Vehicle Year" + ": " + data.vehicleYear + "<h5>"
-  );
+$("#logsubmit").on("click", function(event) {
+  alert("Hello!");
+  event.preventDefault();
+  console.log(5);
+  var userLogin = {
+    userEmail: $("#userEmail")
+      .val()
+      .trim(),
+    userPassword: $("#userPassword").val()
+  };
+  $.ajax("/api/login", {
+    type: "POST",
+    data: userLogin
+  }).then(function(userdata) {
+    console.log(window.location);
+    console.log(userdata);
+    window.location.replace("/profile/" + userdata.id);
+  });
 });
+//DYNAMICALLY ADD USER DATA TO PROFILE.HANDLEBARS
+// var id = 4;
+// $.get("/api/users/" + id, function(data) {
+//   console.log(data);
+//   var profileSection = $("<div>");
+//   profileSection.addClass("well");
+//   profileSection.attr("id", "user-well-");
+//   $(".name").append(profileSection);
+
+//   $("#user-well-").append(
+//     "<h2 class='nameplate'>" + data.firstName + " " + data.lastName + "<h2>"
+//   );
+
+//   $("#user-well-").append(
+//     "<h5>Vehicle Type" + ": " + data.vehicleType + "<h5>"
+//   );
+//   $("#user-well-").append(
+//     "<h5>Vehicle Make" + ": " + data.vehicleMake + "<h5>"
+//   );
+//   $("#user-well-").append(
+//     "<h5>Vehicle Model" + ": " + data.vehicleModel + "<h5>"
+//   );
+//   $("#user-well-").append(
+//     "<h5>Vehicle Year" + ": " + data.vehicleYear + "<h5>"
+//   );
+// });
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
