@@ -43,6 +43,16 @@ module.exports = function(app) {
     });
   });
 
+  //Company Side
+  app.get("/company", function(req, res) {
+    db.User.findAll({}).then(function() {
+      res.render("companySide", {
+        msg: "Make A Selection",
+        style: "companySide.css"
+      });
+    });
+  });
+
   // app.get("/user/register", function(req, res) {
   //   db.company.findAll({}).then(function(dbExamples) {
   //     res.render("register", {

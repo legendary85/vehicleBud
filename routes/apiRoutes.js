@@ -112,7 +112,7 @@ module.exports = function(app) {
   app.put("/api/user/:id", function(req, res) {
     db.User.update(req.body, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(dbUser) {
       res.json(daUser);
@@ -172,6 +172,7 @@ module.exports = function(app) {
 
   // PUT route for updating request
   app.put("/api/requests", function(req, res) {
+    console.log(req.body);
     db.Request.update(req.body, {
       where: {
         id: req.body.id
