@@ -149,7 +149,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/request/", function(req, res) {
+  app.post("/api/requests", function(req, res) {
     console.log(req.body);
     db.Request.create({
       body: req.body.body,

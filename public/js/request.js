@@ -6,7 +6,7 @@ $(document).ready(function() {
   var updating = false;
 
   // If we have this section in our url, we pull out the post id from the url
-  // In localhost:3000/cms?post_id=1, postId is 1
+  // In localhost:3000/request?post_id=1, postId is 1
   if (url.indexOf("?request_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitRequest(Request) {
-    $.post("/api/request/", Request, function() {
+    $.post("/api/requests/", Request, function() {
       window.location.href = "/blog";
     });
   }

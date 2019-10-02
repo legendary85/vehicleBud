@@ -26,7 +26,7 @@ $(document).ready(function() {
   }
 
   // This function does an API call to delete posts
-  function deletePost(id) {
+  function deleteRequest(id) {
     $.ajax({
       method: "DELETE",
       url: "/api/requests/" + id
@@ -49,7 +49,7 @@ $(document).ready(function() {
   }
 
   // This function constructs a post's HTML
-  function createNewRow(post) {
+  function createNewRow(request) {
     var newRequestCard = $("<div>");
     newRequestCard.addClass("card");
     var newRequestCardHeading = $("<div>");
@@ -60,7 +60,7 @@ $(document).ready(function() {
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-default");
-    // var newRequestTitle = $("<h2>");
+    var newRequestTitle = $("<h2>");
     var newRequestDate = $("<small>");
     var newRequestService = $("<h5>");
     newRequestService.text(request.service);
@@ -70,18 +70,18 @@ $(document).ready(function() {
       "margin-top": "-15px"
     });
     var newRequestCardBody = $("<div>");
-    newPostRequestBody.addClass("card-body");
+    newRequestCardBody.addClass("card-body");
     var newRequestBody = $("<p>");
-    newRequestTitle.text(post.title + " ");
-    newRequestBody.text(post.body);
-    var formattedDate = new Date(post.createdAt);
+    newRequestTitle.text(request.title + " ");
+    newRequestBody.text(request.body);
+    var formattedDate = new Date(request.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     newRequestDate.text(formattedDate);
     newRequestTitle.append(newRequestDate);
     newRequestCardHeading.append(deleteBtn);
     newRequestCardHeading.append(editBtn);
     newRequestCardHeading.append(newRequestTitle);
-    newRequestCardHeading.append(newRequestCategory);
+    newRequestCardHeading.append(newRequestService);
     newRequestCardBody.append(newRequestBody);
     newRequestCard.append(newRequestCardHeading);
     newRequestCard.append(newRequestCardBody);
@@ -96,7 +96,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("request");
-    deletePost(currentRequest.id);
+    deleteRequest(currentRequest.id);
   }
 
   // This function figures out which post we want to edit and takes it to the
@@ -106,7 +106,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("request");
-    window.location.href = "/cms?request_id=" + currentRequest.id;
+    window.location.href = "/request?request_id=" + currentRequest.id;
   }
 
   // This function displays a message when there are no posts
@@ -115,7 +115,7 @@ $(document).ready(function() {
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
-      "No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post."
+      "No posts yet for this category, navigate <a href='/request'>here</a> in order to create a new post."
     );
     blogContainer.append(messageH2);
   }
