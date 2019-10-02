@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "Dakota2!",
     "database": "vehicleBud",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "Dakota2!",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
