@@ -96,7 +96,7 @@ var handleFormSubmit = function(event) {
     refreshUsers();
   });
 
-  window.location.replace("/company");
+  window.location.replace("/companylogin");
 };
 
 //Log in request
@@ -106,12 +106,12 @@ $("#logsubmit").on("click", function(event) {
   console.log(5);
 
   var companyLogin = {
-    companyEmail: $("#compayEmail")
+    companyEmail: $("#companyEmail")
       .val()
       .trim(),
     companyPassword: $("#companyPassword").val()
   };
-  $.ajax("/api/login", {
+  $.ajax("/api/companylogin", {
     type: "POST",
     data: companyLogin
   }).then(function(companydata) {
@@ -119,7 +119,7 @@ $("#logsubmit").on("click", function(event) {
     console.log(companydata);
 
     //Move browser to new window after logging in.
-    window.location.replace("/profile/" + companydata.id);
+    window.location.replace("/companyprofile/" + companydata.id);
   });
 });
 //DYNAMICALLY ADD USER DATA TO PROFILE.HANDLEBARS

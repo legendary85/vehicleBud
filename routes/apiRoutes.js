@@ -221,4 +221,17 @@ module.exports = function(app) {
       res.json(dbCompany);
     });
   });
+
+  // LOGIN user
+  app.post("/api/companylogin", function(req, res) {
+    console.log(res.body);
+    db.Company.findOne({
+      where: {
+        companyEmail: req.body.companyEmail,
+        companyPassword: req.body.companyPassword
+      }
+    }).then(function(dbCompany) {
+      res.json(dbCompany);
+    });
+  });
 };

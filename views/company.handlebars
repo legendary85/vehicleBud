@@ -1,0 +1,28 @@
+<div id="container">
+  <div id="loginForm" class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card card-body">
+        <img class="logo" src="/img/logo.png">
+        <h3 class="text-center">Account Login</h3>
+        <form action="/users/register" method="POST">
+          <div class="form-group">
+            <label for="companyEmail">Email</label>
+            <input id="companyEmail" type="email" name="companyEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="companyPassword">Password</label>
+            <input id="companyPassword" type="password" name="password" class="form-control" required>
+          </div>
+          <button id="logsubmit" class="btn btn-primary">Submit</button>
+        </form>
+        <a href="/companyregister">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/company.js"></script>
