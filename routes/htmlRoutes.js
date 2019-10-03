@@ -64,7 +64,7 @@ module.exports = function(app) {
   });
 
   //Company Side
-  app.get("/company", function(req, res) {
+  app.get("/jobs", function(req, res) {
     db.User.findAll({}).then(function() {
       res.render("companySide", {
         msg: "Make A Selection",
