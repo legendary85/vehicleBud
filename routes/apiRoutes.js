@@ -181,4 +181,44 @@ module.exports = function(app) {
       res.json(dbRequest);
     });
   });
+
+  /************************************************************/
+
+  // Company Side
+  /***********************************************************/
+
+  //Get rotue for retrieving a single user
+
+  app.get("/api/companies/:id", function(req, res) {
+    db.Company.findAll({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        "id",
+        "companyName",
+        "companyService",
+        "companyFirstName",
+        "companyLastName"
+      ]
+    })
+      .then(function(dbCompany) {
+        res.json(dbCompany);
+      })
+      .catch(err => console.log(err));
+  });
+
+  //Company Register
+  app.post("/api/companies", function(req, res) {
+    db.Company.create({
+      companyName: req.body.companyName,
+      companyService: req.body.companyService,
+      companyFirstName: req.body.companyFirstName,
+      companyLastName: req.body.companyLastName,
+      companyEmail: req.body.companyEmail,
+      companyPassword: req.body.companyPassword
+    }).then(function(dbCompany) {
+      res.json(dbCompany);
+    });
+  });
 };

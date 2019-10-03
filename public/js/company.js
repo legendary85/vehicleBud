@@ -4,7 +4,7 @@ var $companyFirstName = $("#companyFirstName");
 var $companyLastName = $("#companyLastName");
 var $companyEmail = $("#companyEmail");
 var $companyPassword = $("#companyPassword");
-var $companyService = $("#vehicleType");
+var $companyService = $("#companyService");
 
 var $submitBtn = $("#submit");
 
@@ -69,20 +69,21 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
   console.log("anything");
   var newCompany = {
-    companyFirstName: $companyFirstName.val().trim(),
-    companyLastName: $companyLastName.val().trim(),
     companyName: $companyName.val().trim(),
     companyService: $companyService.val().trim(),
+    companyFirstName: $companyFirstName.val().trim(),
+    companyLastName: $companyLastName.val().trim(),
     companyEmail: $companyEmail.val().trim(),
     companyPassword: $companyPassword.val().trim()
   };
+  console.log(companyService);
 
   if (
     !(
-      newCompany.companyFirstName ||
-      newCompany.companyLastName ||
       newCompany.companyName ||
       newCompany.companyService ||
+      newCompany.companyFirstName ||
+      newCompany.companyLastName ||
       newCompany.companyEmail ||
       newCompany.companyPassword
     )
@@ -104,15 +105,15 @@ $("#logsubmit").on("click", function(event) {
   event.preventDefault();
   console.log(5);
 
-  var userLogin = {
+  var companyLogin = {
     companyEmail: $("#compayEmail")
       .val()
       .trim(),
-    userPassword: $("#companyPassword").val()
+    companyPassword: $("#companyPassword").val()
   };
   $.ajax("/api/login", {
     type: "POST",
-    data: userLogin
+    data: companyLogin
   }).then(function(companydata) {
     // console.log(window.location);
     console.log(companydata);
