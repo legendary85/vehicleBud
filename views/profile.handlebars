@@ -1,21 +1,113 @@
 {{>userHeader}}
 
 
-<!-- Page Content -->
+
 <div class="container">
+  <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            {{firstName}} {{lastName}}
+          </div>
+          <div class="profile-usertitle-job">
+            {{vehicleMake}}
+            {{vehicleModel}} {{vehicleYear}}
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          {{!-- <button type="button" class="btn btn-success btn-sm">Follow</button> --}}
+          <a class="btn btn-danger" href="/request">Request</a>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        {{!-- <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+
+              <a href="#">
+                <i class="glyphicon glyphicon-user"></i>
+                Account Settings </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <i class="glyphicon glyphicon-ok"></i>
+                Tasks </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="glyphicon glyphicon-flag"></i>
+                Help </a>
+            </li>
+          </ul>
+        </div> --}}
+        <!-- END MENU -->
+      </div>
+    </div>
+    {{!-- <div class="col-md-9">
+      <div class="profile-content">
+        Some user related content goes here...
+      </div>
+    </div> --}}
+  </div>
+</div>
+<center>
+
+</center>
+<br>
+<br>
+
+
+
+
+
+
+{{!-- <div class="name">
+  <h2>Name: {{firstName}} {{lastName}}</h2>
+  <h4>Vehicle Type: {{vehicleType}}</h4>
+  <h4>Vehicle Make: {{vehicleMake}}</h4>
+  <h4>Vehicle Model: {{vehicleModel}}</h4>
+  <h4>Vehicle Year: {{vehicleYear}}</h4>
+</div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <!-- Page Content --> --}}
+{{!-- <div class="container">
   <div class="row">
     <div class="col-lg-6 text-center">
-      {{!-- <h1 class="mt-5">A Bootstrap 4 Starter Template</h1> --}}
+      <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
 
       
       <div class="row">
-        {{!-- <div class="col-md-6 mx-auto"> --}}
+        <div class="col-md-6 mx-auto">
         <div class="card card-body">
-          {{!-- <img class="logo" src="/img/logo.png"> --}}
+          <img class="logo" src="/img/logo.png">
           <h3 class="text-center">Welcome!</h3>
           <form>
             <div class="form-group">
-              {{!-- <label for="userName">Name</label> --}}
+              <label for="userName">Name</label>
               <div class="name">
                 <h2>Name: {{firstName}} {{lastName}}</h2>
                 <h4>Vehicle Type: {{vehicleType}}</h4>
@@ -29,7 +121,8 @@
             </div>
           </form>
         </div>
-        {{!-- </div> --}}
+        </div>
+
       </div>
     </div>
   </div>
@@ -37,6 +130,6 @@
 <br>
 
 <br>
-<br>
+<br> --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/users.js"></script>

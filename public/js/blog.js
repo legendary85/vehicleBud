@@ -72,7 +72,7 @@ $(document).ready(function () {
     var newRequestCardBody = $("<div>");
     newRequestCardBody.addClass("card-body");
     var newRequestBody = $("<p>");
-    newRequestTitle.text(request.title + " z");
+    newRequestTitle.text("🛑 Name Here    ");
     newRequestBody.text(request.body);
     var formattedDate = new Date(request.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");

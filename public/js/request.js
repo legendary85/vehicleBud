@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Gets an optional query string from our url (i.e. ?post_id=23)
   var url = window.location.search;
   var requestId;
@@ -47,14 +47,14 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitRequest(Request) {
-    $.post("/api/requests/", Request, function() {
-      window.location.href = "/blog";
+    $.post("/api/requests/", Request, function () {
+      window.location.href = "/request/made";
     });
   }
 
   // Gets post data for a post if we're editing
   function getRequestData(id) {
-    $.get("/api/requests/" + id, function(data) {
+    $.get("/api/requests/" + id, function (data) {
       if (data) {
         // If this post exists, prefill our cms forms with its data
         bodyInput.val(data.body);
@@ -72,7 +72,7 @@ $(document).ready(function() {
       method: "PUT",
       url: "/api/requests",
       data: data
-    }).then(function() {
+    }).then(function () {
       window.location.href = "/blog";
     });
   }
