@@ -1,4 +1,4 @@
-<div id="container">
+{{!-- <div id="container">
   <div id="loginForm" class="row">
     <div class="col-md-6 mx-auto">
       <div class="card card-body">
@@ -19,9 +19,26 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
-
+<section>
+  <div class="container">
+    <div class="overlay"></div>
+    {{!-- Login Box --}}
+    <div class="login-box">
+      <h1>Login</h1>
+      <div class="textbox">
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <input id="companyEmail" type="text" placeholder="Email" name="" value="">
+      </div>
+      <div class="textbox">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <input id="companyPassword" type="password" placeholder="Password" name="" value="">
+      </div>
+      <input id="logsubmit" type="button" class="btn" name="" value="Sign in">
+    </div>
+  </div>
+</section>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -102,7 +102,7 @@ module.exports = function (app) {
     db.User.findAll({}).then(function () {
       res.render("company", {
         msg: "Make A Selection",
-        style: "companySide.css"
+        style: "company.css"
       });
     });
   });
