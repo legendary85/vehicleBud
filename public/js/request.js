@@ -21,7 +21,7 @@ $(document).ready(function () {
   // Adding an event listener for when the form is submitted
   $(reqForm).on("submit", function handleFormSubmit(event) {
     event.preventDefault();
-    alert("I'm Hit!");
+    // alert("I'm Hit!");
     // Wont submit the post if we are missing a body or a title
     if (!bodyInput.val().trim()) {
       return;
