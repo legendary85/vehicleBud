@@ -108,6 +108,7 @@ $("#logsubmit").on("click", function(event) {
   alert("Hello!");
   event.preventDefault();
   console.log(5);
+
   var userLogin = {
     userEmail: $("#userEmail")
       .val()
@@ -121,6 +122,8 @@ $("#logsubmit").on("click", function(event) {
     // console.log(window.location);
     console.log(userdata);
 
+    localStorage.setItem("login", userdata.id);
+    //Move browser to new window after logging in.
     window.location.replace("/profile/" + userdata.id);
   });
 });

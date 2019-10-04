@@ -6,10 +6,10 @@ $(document).ready(function() {
   var updating = false;
 
   // If we have this section in our url, we pull out the post id from the url
-  // In localhost:3000/cms?post_id=1, postId is 1
+  // In localhost:3000/request?post_id=1, postId is 1
   if (url.indexOf("?request_id=") !== -1) {
-    postId = url.split("=")[1];
-    getPostData(postId);
+    requestId = url.split("=")[1];
+    getRequestData(requestId);
   }
 
   // Getting jQuery references to the post body, title, form, and category select
@@ -37,6 +37,7 @@ $(document).ready(function() {
     // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
     if (updating) {
+      console.log(updating);
       newRequest.id = requestId;
       updateRequest(newRequest);
     } else {
@@ -46,7 +47,7 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitRequest(Request) {
-    $.post("/api/request/", Request, function() {
+    $.post("/api/requests/", Request, function() {
       window.location.href = "/blog";
     });
   }
@@ -66,11 +67,11 @@ $(document).ready(function() {
   }
 
   // Update a given post, bring user to the blog page when done
-  function updateRequest(post) {
+  function updateRequest(data) {
     $.ajax({
       method: "PUT",
       url: "/api/requests",
-      data: post
+      data: data
     }).then(function() {
       window.location.href = "/blog";
     });
