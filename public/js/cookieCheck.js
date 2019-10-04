@@ -11,7 +11,7 @@ function localStorageCheck() {
 
 function clearStorage() {
   localStorage.clear();
-  window.location.replace("/");
+  window.location.replace("/login");
 }
 $("#logoutButton").on("click", clearStorage);
 
