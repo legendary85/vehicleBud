@@ -57,6 +57,9 @@ module.exports = function (app) {
         userEmail: req.body.userEmail
       }
     }).then(function (dbUser) {
+      if (dbUser === null) {
+        return res.json({ status: "error", message: "User does not exist 🤔" })
+      }
       console.log("**********************************");
       console.log(dbUser);
       bcrypt
@@ -64,10 +67,15 @@ module.exports = function (app) {
         .then(function (success) {
           if (success === true) {
             res.json(dbUser);
+          } else {
+            res.JSON({ status: 'error', check: " Check credentials 😫" })
           }
           // res == true
         })
-        .catch(err => console.log(err));
+        .catch(function (err) {
+          console.log("🤬🤯");
+          res.json({ status: 'Error 😢', desc: err })
+        });
     });
   });
 
