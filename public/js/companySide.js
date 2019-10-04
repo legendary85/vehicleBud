@@ -55,10 +55,10 @@ $(document).ready(function () {
     var newRequestCardHeading = $("<div>");
     newRequestCardHeading.addClass("card-header");
     var deleteBtn = $("<button>");
-    deleteBtn.text("Done");
-    deleteBtn.addClass("delete btn btn-danger");
+    deleteBtn.text("COMPLETE");
+    deleteBtn.addClass("delete btn btn-success");
     var editBtn = $("<button>");
-    editBtn.text("EDIT");
+    editBtn.text("REPLY");
     editBtn.addClass("edit btn btn-default");
     var newRequestTitle = $("<h2>");
     var newRequestDate = $("<small>");
