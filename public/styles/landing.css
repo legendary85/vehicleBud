@@ -20,7 +20,7 @@ body {
   top: 30%;
 }
 
-#userLogin{
+#userLogin, #companyRegister{
     font-size: 20px;
     color: white;
 

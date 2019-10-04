@@ -9,6 +9,16 @@ module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
     db.User.findAll({}).then(function () {
+      res.render("landing", {
+        msg: "Account Login",
+        style: "landing.css"
+        // users: dbExamples
+      });
+    });
+  });
+
+  app.get("/login", function (req, res) {
+    db.User.findAll({}).then(function () {
       res.render("login", {
         msg: "Account Login",
         style: "login.css"
@@ -16,6 +26,7 @@ module.exports = function (app) {
       });
     });
   });
+
 
 
   //Load Register Page
