@@ -11,7 +11,7 @@ var $submitBtn = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveUser: function(newUser) {
+  saveUser: function (newUser) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -21,13 +21,13 @@ var API = {
       data: JSON.stringify(newUser)
     });
   },
-  getUser: function() {
+  getUser: function () {
     return $.ajax({
       url: "api/users",
       type: "GET"
     });
   },
-  deleteUser: function(id) {
+  deleteUser: function (id) {
     return $.ajax({
       url: "api/users/" + id,
       type: "DELETE"
@@ -66,7 +66,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new User
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
   console.log("anything");
   var newUser = {
@@ -96,7 +96,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveUser(newUser).then(function() {
+  API.saveUser(newUser).then(function () {
     refreshUsers();
   });
 
@@ -104,10 +104,12 @@ var handleFormSubmit = function(event) {
 };
 
 //Log in request
-$("#logsubmit").on("click", function(event) {
-  alert("Hello!");
+$("#logsubmit").on("click", function (event) {
+  var $loginMessage = $('#login-message');
+  $loginMessage.hide();
   event.preventDefault();
   console.log(5);
+
   var userLogin = {
     userEmail: $("#userEmail")
       .val()
@@ -117,12 +119,18 @@ $("#logsubmit").on("click", function(event) {
   $.ajax("/api/login", {
     type: "POST",
     data: userLogin
-  }).then(function(userdata) {
-    // console.log(window.location);
-    console.log(userdata);
+  })
+    .then(function (userdata) {
+      // console.log(userdata);
+      if (userdata.status === 'error') {
+        $loginMessage.text(userdata.message).show();
+      } else {
+        localStorage.setItem("login", userdata.id);
+        //Move browser to new window after logging in.
+        window.location.replace("/profile/" + userdata.id);
+      }
 
-    window.location.replace("/profile/" + userdata.id);
-  });
+    });
 });
 //DYNAMICALLY ADD USER DATA TO PROFILE.HANDLEBARS
 // var id = 4;

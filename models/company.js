@@ -8,27 +8,32 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    mechanic: {
+    companyService: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     },
-    service: {
+    companyFirstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    companyLastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    companyEmail: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    companyPassword: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     }
   });
-
-  // Post.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Post.belongsTo(models.Author, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
 
   return Company;
 };

@@ -5,43 +5,21 @@ module.exports = {
     return queryInterface.bulkInsert("Companies", [
       {
         companyName: "Big Joe's Tire Shop",
-        mechanic: "Troy Allen",
-        service: "Tires",
+        companyFirstName: "Troy",
+        companyLastName: "Allen",
+        companyService: "Tires",
+        companyEmail: "bigjoes@gmail.com",
+        companyPassword: "asd",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        companyName: "The Lock Doctor",
-        mechanic: "Sarah James",
-        service: "Pop-A-Lock",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        companyName: "Lonstar Lube Oil",
-        mechanic: "Christopher Torres",
-        service: "Oil Change",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        companyName: "Pristine Detailers",
-        mechanic: "Kirk Woods",
-        service: "Car Wash",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        companyName: "AAA",
-        mechanic: "Rita Brown",
-        service: "Jump Start",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        companyName: "Tow Crew",
-        mechanic: "Victor Samuels",
-        service: "Tow",
+        companyName: "Southwest Car Wash",
+        companyFirstName: "Susan",
+        companyLastName: "Lanley",
+        companyService: "Car Wash",
+        companyEmail: "swwash@gmail.com",
+        companyPassword: "asd",
         createdAt: new Date(),
         updatedAt: new Date()
       }
