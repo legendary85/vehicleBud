@@ -115,7 +115,7 @@ $(document).ready(function () {
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
-      "No posts yet for this category, navigate <a href='/request'>here</a> in order to create a new post."
+      "No posts yet for this category, navigate <a href='/request/made'>here</a> in order to create a new post."
     );
     blogContainer.append(messageH2);
   }

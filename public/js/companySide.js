@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // blogContainer holds all of our posts
   var blogContainer = $(".blog-container");
   var postServiceSelect = $("#service");
@@ -14,7 +14,7 @@ $(document).ready(function() {
     if (serviceString) {
       serviceString = "/service/" + serviceString;
     }
-    $.get("/api/requests" + serviceString, function(data) {
+    $.get("/api/requests" + serviceString, function (data) {
       console.log("Requests", data);
       requests = data;
       if (!requests || !requests.length) {
@@ -30,7 +30,7 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/requests/" + id
-    }).then(function() {
+    }).then(function () {
       getRequest(postServiceSelect.val());
     });
   }
@@ -72,7 +72,7 @@ $(document).ready(function() {
     var newRequestCardBody = $("<div>");
     newRequestCardBody.addClass("card-body");
     var newRequestBody = $("<p>");
-    newRequestTitle.text(request.title + " ");
+    newRequestTitle.text("🚨 Request from: Name Here 🚨 ");
     newRequestBody.text(request.body);
     var formattedDate = new Date(request.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
