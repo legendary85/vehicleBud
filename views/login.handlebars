@@ -2,8 +2,9 @@
   <div id="loginForm" class="row">
     <div class="col-md-6 mx-auto">
       <div class="card card-body">
-        <img class="logo" src="/img/logo.png">
+        {{!-- <img class="logo" src="/img/logo.png"> --}}
         <h3 class="text-center">Account Login</h3>
+        <div class="alert alert-primary" style="display: none;" id="login-message" role="alert"></div>
         <form action="/users/register" method="POST">
           <div class="form-group">
             <label for="userEmail">Email</label>
