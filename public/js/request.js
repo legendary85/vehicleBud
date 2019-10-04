@@ -73,7 +73,7 @@ $(document).ready(function () {
       url: "/api/requests",
       data: data
     }).then(function () {
-      window.location.href = "/blog";
+      window.location.href = "/request/made";
     });
   }
 });
