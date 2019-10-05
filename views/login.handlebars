@@ -6,7 +6,6 @@
       <div class="card card-body">
         <img class="logo" src="/image/buddy.png">
         <h3 class="text-center">Account Login</h3>
-        <div class="alert alert-primary" style="display: none;" id="login-message" role="alert"></div>
         <form action="/users/register" method="POST">
           <div class="form-group">
             <label for="userEmail">Email</label>
@@ -31,6 +30,7 @@
     {{!-- Login Box --}}
     <div class="login-box">
       <h1>Login</h1>
+      <div class="alert alert-primary" style="display: none;" id="login-message" role="alert"></div>
       <div class="textbox">
         <i class="fas fa-user" aria-hidden="true"></i>
         <input id="userEmail" type="text" placeholder="Email" name="" value="">

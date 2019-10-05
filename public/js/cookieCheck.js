@@ -1,7 +1,7 @@
 // localStorage
 
 function localStorageCheck() {
-  if (window.location.href === "http://localhost:3000/login") {
+  if (window.location.href === "http://localhost:3000/") {
     if (
       localStorage.getItem("login") !== null &&
       localStorage.getItem("login") !== "undefined"
@@ -14,7 +14,7 @@ function localStorageCheck() {
 
 function clearStorage() {
   localStorage.clear();
-  window.location.replace("/login");
+  window.location.replace("/");
 }
 $("#logoutButton").on("click", clearStorage);
 
