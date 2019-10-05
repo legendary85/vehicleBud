@@ -4,9 +4,11 @@ label {
 
 }
 
-body{
-    background-image: url(https://images.unsplash.com/photo-1531579234-a0a99da45460?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80);
 
+#logo {
+    height: 600px;
+    width: 400px;
+    margin: 60px 90px;
 }
 
 .row{

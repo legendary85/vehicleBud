@@ -1,48 +1,19 @@
-/* .well {
-  color: #002d72;
-}
-.nameplate {
-  color: red;
-  text-align: center;
-  font-size: 3.5rem;
-}
-
-body{
-  background-size: 100%;
-  background-image: url(https://images.unsplash.com/photo-1464851707681-f9d5fdaccea8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2210&q=80);
-}
-
-.row{
-
-padding-top: 40px;
-}
-
-.text-center, .name {
-  color: #720009;
-
-}
-
-.btn{
-  color:white;
-  background-color: #8bddf1;
-
-}
-
-.text-center{
-  padding-right: 40px;
-  
-} */
-
-
 body {
   /* background: #F1F3FA; */
   background: black;
-  background-image: url(https://images.unsplash.com/photo-1464851707681-f9d5fdaccea8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2210&q=80);
+  /* background-image: url(https://images.unsplash.com/photo-1464851707681-f9d5fdaccea8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2210&q=80); */
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+/* Logo */
+#logo {
+  height: 640px;
+  width: 420px;
+  margin: 60px 90px;
 }
 
 /* Profile container */

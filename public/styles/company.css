@@ -1,41 +1,9 @@
-/* body {
-  
-  background-image: url(https://images.unsplash.com/photo-1517672651691-24622a91b550?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80);
-  background-size: 99%;
-  width: 100%;
-}
-
-#submit {
-  background-color: #002d72;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-label {
-  color: #002d72;
-  font-size: 30px;
-} 
-
-.row {
-  padding-top: 40px;
-
-}
-
-.text-center{
-  color: #002d72;
-} */
-
-
 body{
   background: black;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url(https://images.unsplash.com/photo-1517672651691-24622a91b550?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80);
+  background: url(https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?cs=srgb&dl=accident-adult-auto-2244746.jpg&fm=jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -101,5 +69,3 @@ body{
   cursor: pointer;
   margin: 12px 0;
 }
-
-

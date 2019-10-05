@@ -72,7 +72,7 @@ $(document).ready(function () {
     var newRequestCardBody = $("<div>");
     newRequestCardBody.addClass("card-body");
     var newRequestBody = $("<p>");
-    newRequestTitle.text(request.title + " z");
+    newRequestTitle.text("🛑 Name Here    ");
     newRequestBody.text(request.body);
     var formattedDate = new Date(request.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
@@ -115,7 +115,7 @@ $(document).ready(function () {
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html(
-      "No posts yet for this category, navigate <a href='/request'>here</a> in order to create a new post."
+      "No posts yet for this category, navigate <a href='/request/made'>here</a> in order to create a new post."
     );
     blogContainer.append(messageH2);
   }

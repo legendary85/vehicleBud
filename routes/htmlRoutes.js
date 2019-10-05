@@ -73,11 +73,11 @@ module.exports = function (app) {
   });
 
   //This is where requests are displayed - USER SEES
-  app.get("/blog", function (req, res) {
+  app.get("/request/made", function (req, res) {
     db.User.findAll({}).then(function () {
       res.render("blog", {
         msg: "Make A Selection",
-        style: "login.css"
+        style: "blog.css"
       });
     });
   });
@@ -102,7 +102,7 @@ module.exports = function (app) {
     db.User.findAll({}).then(function () {
       res.render("company", {
         msg: "Make A Selection",
-        style: "companySide.css"
+        style: "company.css"
       });
     });
   });

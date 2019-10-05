@@ -105,7 +105,7 @@ var handleFormSubmit = function (event) {
 
 //Log in request
 $("#logsubmit").on("click", function (event) {
-  var $loginMessage = $('#login-message');
+  var $loginMessage = $("#login-message");
   $loginMessage.hide();
   event.preventDefault();
   console.log(5);
@@ -119,18 +119,16 @@ $("#logsubmit").on("click", function (event) {
   $.ajax("/api/login", {
     type: "POST",
     data: userLogin
-  })
-    .then(function (userdata) {
-      // console.log(userdata);
-      if (userdata.status === 'error') {
-        $loginMessage.text(userdata.message).show();
-      } else {
-        localStorage.setItem("login", userdata.id);
-        //Move browser to new window after logging in.
-        window.location.replace("/profile/" + userdata.id);
-      }
-
-    });
+  }).then(function (userdata) {
+    // console.log(userdata);
+    if (userdata.status === "error") {
+      $loginMessage.text(userdata.message).show();
+    } else {
+      localStorage.setItem("login", userdata.id);
+      //Move browser to new window after logging in.
+      window.location.replace("/profile/" + userdata.id);
+    }
+  });
 });
 //DYNAMICALLY ADD USER DATA TO PROFILE.HANDLEBARS
 // var id = 4;
